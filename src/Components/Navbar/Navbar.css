@@ -1,19 +1,38 @@
 .navbar {
-  background-color: #1e1e2f;
-  color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background-color: #121212;
+  color: white;
+  padding: 0.5rem 2rem;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(255, 77, 77, 0.2);
+  transition: background-color 0.3s ease;
 }
+
 
 .logo {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 1.6rem;
   color: #ff4d4d;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 4px rgba(255, 77, 77, 0.3);
+  margin-right: 55rem;
 }
+
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem; 
+  width: 100%;
+}
+
 
 .nav-links {
   list-style: none;
@@ -21,15 +40,33 @@
   gap: 2rem;
   margin: 0;
   padding: 0;
+  flex-grow: 1;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #ffffff;
   font-weight: 500;
+  font-size: 1rem;
+  position: relative;
   transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ff4d4d;
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
   color: #ff4d4d;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
