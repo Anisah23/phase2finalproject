@@ -1,18 +1,15 @@
-import { Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
-
-function LandingPlaceholder() {
-  return (
-   <></>
-  );
-}
+import Landing from './Components/Landing/Landing'; 
 
 function App() {
   return (
-    <>
-      <Navbar />
-     
+    <> <Navbar />
+    <Landing />
     </>
+    
+     
   );
 }
 
