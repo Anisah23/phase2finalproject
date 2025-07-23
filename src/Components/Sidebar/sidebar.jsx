@@ -1,5 +1,5 @@
 import React from "react";
-import '../Sidebar/sidebar.css'
+import './sidebar.css'
 const genres = [
   "Action",
   "Adventure",

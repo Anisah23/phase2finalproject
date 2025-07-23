@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Landing from './Components/Landing/Landing'; 
 import React, { useState } from "react";
-import GenreSidebar from "./assets/Sidebar/sidebar";
+import GenreSidebar from "./Components/Sidebar/sidebar";
 import '../src/App.css'
 
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState(null);
+  const [selectedGenre, setSelectedGenre] = useState("");
 
   function handleGenreSelect(genre) {
     setSelectedGenre(genre);
@@ -23,4 +23,4 @@ function App() {
 }
 
 export default App;
-export default App;
+
