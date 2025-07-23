@@ -1,3 +1,7 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar/Navbar';
+import Landing from './Components/Landing/Landing'; 
 import React, { useState } from "react";
 import GenreSidebar from "./assets/Sidebar/sidebar";
 import '../src/App.css'
@@ -18,4 +22,5 @@ function App() {
   );
 }
 
+export default App;
 export default App;
