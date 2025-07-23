@@ -33,39 +33,13 @@ const Landing = () => {
           images.length > 0 ? (prevIndex + 1) % images.length : 0
         );
         setFadeIn(true);
-      }, 500); 
+      }, 6000); 
     }, 6000);
 
     return () => clearInterval(interval);
   }, [images]);
 
-  useEffect(() => {
-    let isMounted = true;
-
-    const fetchQuote = async () => {
-      try {
-        const res = await fetch("https://api.animechan.io/v1/quotes/random");
-        if (!res.ok) throw new Error(`API error: ${res.status}`);
-        const data = await res.json();
-        if (isMounted) {
-          setQuote(data.quote);
-        }
-      } catch (err) {
-        console.error("Error fetching quote:", err.message);
-        if (isMounted) {
-          setQuote("Anime is an escape. A beautiful one.");
-        }
-      }
-    };
-
-    fetchQuote();
-    const interval = setInterval(fetchQuote, 45000);
-
-    return () => {
-      isMounted = false;
-      clearInterval(interval);
-    };
-  }, []);
+ 
 
   const handleDiscover = () => {
     navigate("/home");
@@ -83,11 +57,7 @@ const Landing = () => {
       <div className="overlay">
         <h1 className="title">Welcome to Animetion</h1>
 
-        {quote && (
-          <div className="quote-box">
-            <p className="quote-text">“{quote}”</p>
-          </div>
-        )}
+        <p className="quote-text">"Anime is an escape. A beautiful one."</p>
 
         <button className="discover-btn" onClick={handleDiscover}>
           Discover Anime
