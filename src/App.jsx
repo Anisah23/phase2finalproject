@@ -1,10 +1,14 @@
+
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Landing from "./Components/Landing/Landing";
 
 function App() {
+
+
   return (
+
     <>
       <Navbar />
       <Routes>
@@ -14,7 +18,9 @@ function App() {
         <Route path="/favorites" element={<div>Favorites Page Coming Soon</div>} />
       </Routes>
     </>
+    
   );
 }
 
 export default App;
+
