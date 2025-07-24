@@ -1,0 +1,31 @@
+
+.anime-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  color: #fff;
+  background-color: #121212;
+  min-height: 100vh;
+}
+
+.anime-detail img {
+  width: 250px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
+}
+
+.anime-detail-content {
+  max-width: 800px;
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+  line-height: 1.6;
+}
+
+.anime-detail h2 {
+  color: #ff6600;
+  margin-bottom: 1rem;
+}
