@@ -17,31 +17,33 @@ const Home = () => {
       .then((data) => setFavorites(data));
   }, []);
 
- const handleAddToFavorites = (anime) => {
-  const isAlreadyFavorite = favorites.some((fav) => fav.mal_id === anime.mal_id);
-  if (isAlreadyFavorite) {
-    alert("Already in favorites!");
-    return;
-  }
+  const handleAddToFavorites = (anime) => {
+    const isAlreadyFavorite = favorites.some((fav) => fav.mal_id === anime.mal_id);
+    if (isAlreadyFavorite) {
+      alert("Already in favorites!");
+      return;
+    }
 
-  const animeData = {
-    mal_id: anime.mal_id,
-    title: anime.title,
-    image: anime.images?.jpg?.image_url,
+    const animeData = {
+      mal_id: anime.mal_id,
+      title: anime.title,
+      image: anime.images?.jpg?.image_url,
+    };
+
+    fetch("http://localhost:3000/favorites", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(animeData),
+    })
+      .then((res) => res.json())
+      .then((newFav) => {
+        setFavorites((prev) => [...prev, newFav]);
+        alert("Added to favorites!");
+      })
+      .catch(() => {
+        alert("Failed to add to favorites.");
+      });
   };
-
-  fetch("http://localhost:3000/favorites", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(animeData),
-  })
-    .then((res) => res.json())
-    .then((newFav) => {
-      setFavorites((prev) => [...prev, newFav]);
-      alert("Added to favorites!");
-    });
-};
-
 
   const filteredList = animeList.filter((anime) =>
     anime.title.toLowerCase().includes(search.toLowerCase())
@@ -60,12 +62,11 @@ const Home = () => {
       <div className="anime-grid">
         {filteredList.map((anime) => (
           <AnimeCard
-  key={anime.mal_id}
-  anime={anime}
-  onAddToFavorites={handleAddToFavorites}
-  isFavorite={favorites.some((fav) => fav.mal_id === anime.mal_id)}
-/>
-
+            key={anime.mal_id}
+            anime={anime}
+            onAddToFavorites={() => handleAddToFavorites(anime)}
+            isFavorite={favorites.some((fav) => fav.mal_id === anime.mal_id)}
+          />
         ))}
       </div>
     </div>

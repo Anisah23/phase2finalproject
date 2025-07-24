@@ -11,7 +11,6 @@ const GenreAnimeList = () => {
   const [favorites, setFavorites] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
- 
   useEffect(() => {
     if (genreId) {
       fetch(`https://api.jikan.moe/v4/anime?genres=${genreId}`)
@@ -21,7 +20,6 @@ const GenreAnimeList = () => {
     }
   }, [genreId]);
 
- 
   useEffect(() => {
     fetch("http://localhost:3000/favorites")
       .then((res) => res.json())
@@ -36,10 +34,16 @@ const GenreAnimeList = () => {
       return;
     }
 
+    const animeData = {
+      mal_id: anime.mal_id,
+      title: anime.title,
+      image: anime.images?.jpg?.image_url,
+    };
+
     fetch("http://localhost:3000/favorites", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(anime),
+      body: JSON.stringify(animeData),
     })
       .then((res) => {
         if (!res.ok) {
@@ -87,7 +91,7 @@ const GenreAnimeList = () => {
             <AnimeCard
               key={anime.mal_id}
               anime={anime}
-              onAddToFavorites={handleAddToFavorites}
+              onAddToFavorites={() => handleAddToFavorites(anime)}
               isFavorite={favorites.some((fav) => fav.mal_id === anime.mal_id)}
             />
           ))
