@@ -46,8 +46,9 @@ A sleek and interactive single-page Anime Recommendation Web App built with Reac
 5. Ensure db.json is in your root directory.
 
 ## Author
-- Anisah23,jeshurunmuchugingugi,Nate23-Q
+- Anisah23,jeshurunmuchugingugi,Nate23-Q,Ryan Mwai
 - github repository: https://github.com/Anisah23/phase2finalproject
+- live link: https://phase2finalproject-kixo9dt7z-anisah23s-projects.vercel.app/
 
 ## License
 - MIT LICENSE
