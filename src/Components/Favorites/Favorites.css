@@ -1,0 +1,114 @@
+
+.favorites-page {
+  padding: 2rem;
+  background-color: #0e0e10;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.fav-card {
+  background-color: #1a1a1d;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 5px rgba(255, 153, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.fav-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  height: 240px;
+  object-fit: cover;
+}
+
+.fav-card h3 {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.fav-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.fav-actions button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  background-color: #ff9900;
+  color: #0e0e10;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.fav-actions button:hover {
+  background-color: #ffa733;
+}
+
+.edit-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit-section input {
+  padding: 0.5rem;
+  border: 1px solid #ff9900;
+  border-radius: 5px;
+  background-color: #141418;
+  color: white;
+}
+
+.edit-section button {
+  padding: 0.4rem;
+  background-color: #ff9900;
+  border: none;
+  color: #0e0e10;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.edit-section button:hover {
+  background-color: #ffa733;
+}
+/* shared styles for both */
+.search-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin: 1rem auto;
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.favorites-container {
+  min-height: 100vh;
+  background: red !important;
+  overflow-y: auto;
+  padding-bottom: 50px; 
+ 
+}
