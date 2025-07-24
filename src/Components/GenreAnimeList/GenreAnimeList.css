@@ -1,0 +1,31 @@
+.genre-anime-container {
+  padding: 2rem;
+  background-color: #0f0f0f;
+  min-height: 100vh;
+  color: white;
+}
+
+.section-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #f97316;
+}
+
+.genre-search {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem 0 2rem 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+    padding-right: 21.1px;
+}
