@@ -9,8 +9,8 @@ const shuffleArray = (arr) => {
 const Landing = () => {
   const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [quote, setQuote] = useState("");
   const [fadeIn, setFadeIn] = useState(true);
+  const [loaded, setLoaded] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,26 +20,35 @@ const Landing = () => {
         const urls = data.data.map((anime) => anime.images.jpg.large_image_url);
         const shuffled = shuffleArray(urls);
         setImages(shuffled);
-        setCurrentImageIndex(Math.floor(Math.random() * shuffled.length)); // Start randomly
+        const initialIndex = Math.floor(Math.random() * shuffled.length);
+        setCurrentImageIndex(initialIndex);
+
+       
+        const img = new Image();
+        img.src = shuffled[initialIndex];
+        img.onload = () => setLoaded(true);
       });
   }, []);
 
-  
   useEffect(() => {
+    if (images.length === 0) return;
+
     const interval = setInterval(() => {
-      setFadeIn(false);
-      setTimeout(() => {
-        setCurrentImageIndex((prevIndex) =>
-          images.length > 0 ? (prevIndex + 1) % images.length : 0
-        );
-        setFadeIn(true);
-      }, 6000); 
-    }, 6000);
+      setFadeIn(false); 
+
+      const nextIndex = (currentImageIndex + 1) % images.length;
+      const nextImage = new Image();
+      nextImage.src = images[nextIndex];
+
+      nextImage.onload = () => {
+        setCurrentImageIndex(nextIndex);
+        setLoaded(true);
+        setFadeIn(true); 
+      };
+    }, 6000); 
 
     return () => clearInterval(interval);
-  }, [images]);
-
- 
+  }, [currentImageIndex, images]);
 
   const handleDiscover = () => {
     navigate("/home");
@@ -47,10 +56,12 @@ const Landing = () => {
 
   return (
     <div className="landing-container">
-      {images.length > 0 && (
+      {images.length > 0 && loaded && (
         <div
           className={`background-image ${fadeIn ? "fade-in" : "fade-out"}`}
-          style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+          style={{
+            backgroundImage: `url(${images[currentImageIndex]})`,
+          }}
         />
       )}
 
